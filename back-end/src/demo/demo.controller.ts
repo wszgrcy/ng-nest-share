@@ -1,7 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
-@Controller('demo')
+import { version } from '@share';
+@Controller('api')
 export class DemoController {
-    @Get()
-    getData(){
-    }
+  @Get('version')
+  getData() {
+    return { version };
+  }
 }
