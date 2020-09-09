@@ -1,0 +1,4 @@
+{
+  "angular.ngdk": "./front-end",
+  "typescript.tsdk":"./front-end"
+}
