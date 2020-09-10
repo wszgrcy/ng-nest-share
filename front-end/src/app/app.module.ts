@@ -10,6 +10,7 @@ import { AppService } from './app.service';
 import { DecoratorModule } from './decorator/decorator.module';
 import { DecoratorUseageModule } from './decorator-useage/decorator-useage.module';
 import { DecoratorExtendsModule } from './decorator-extends/decorator-extends.module';
+import { MyDecoratorModule } from './my-decorator/my-decorator.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,6 +21,7 @@ import { DecoratorExtendsModule } from './decorator-extends/decorator-extends.mo
     DecoratorModule,
     DecoratorUseageModule,
     DecoratorExtendsModule,
+    MyDecoratorModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent],
