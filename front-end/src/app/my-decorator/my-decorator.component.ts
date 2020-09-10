@@ -52,10 +52,14 @@ export class MyDecoratorComponent {
   @LoadingHint({
     container: (type: MyDecoratorComponent) => type.blockContainer,
     component: LoadingShowComponent,
-    timeout: 4000,
+    // blockReturn: tsrue,
     uninstallMod: CyiaLoadingHintUninstall.component,
   })
-  loadControl(){
-
+  loadControl() {
+    return new Promise((res) => {
+      setTimeout(() => {
+        res(1);
+      }, 3000);
+    });
   }
 }
