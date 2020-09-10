@@ -1,7 +1,9 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { version } from '@share';
+import { DemoService } from './demo.service';
 @Controller('api')
 export class DemoController {
+  constructor(private demoService: DemoService) {}
   @Get('version')
   getData() {
     return { version };
@@ -16,8 +18,12 @@ export class DemoController {
       { label: '客户研发部', value: 4 },
     ];
   }
-  @Post('update')
-  updateItem(@Body() body){
-
+  @Post('add')
+  addItem(@Body() body) {
+    return this.demoService.add(body);
+  }
+  @Get('list')
+  getList() {
+    return this.demoService.get();
   }
 }

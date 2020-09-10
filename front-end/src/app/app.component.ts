@@ -5,6 +5,8 @@ import { DefaultEntity } from '../entity/default.entity';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { DepartmentList } from '../entity/dictionary.entity';
+import { PersonEntity } from '../entity/person.entity';
+import { AppService } from './app.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,15 +15,20 @@ import { DepartmentList } from '../entity/dictionary.entity';
 export class AppComponent {
   version = version;
   departments: DepartmentList[] = [];
-  constructor(private repository: CyiaRepositoryService, private http: HttpClient) {
-    this.repository.findMany(DepartmentList).subscribe((list) => {
+  list: PersonEntity[] = [];
+  constructor(private repository: CyiaRepositoryService, private http: HttpClient, private appService: AppService) {
+    this.appService.getDepartment().subscribe((list) => {
       this.departments = list;
     });
-    this.http.get('api/version').subscribe((e) => {
-      console.log(e);
+
+    this.repository.findMany(PersonEntity).subscribe((list) => {
+      console.log(list);
+      this.list = list;
     });
   }
   update(form: NgForm) {
-    console.log(form.value);
+    this.http.post('api/add', form.value).subscribe((e) => {
+      console.log(e);
+    });
   }
 }

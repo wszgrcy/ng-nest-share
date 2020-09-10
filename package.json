@@ -10,10 +10,9 @@
     "be-install": "cd ./back-end&&npm i",
     "fe-start": "cd ./front-end&&npm run start",
     "be-start": "cd ./back-end&&npm run start:dev",
-    "start":"npm run fe-start&&npm run be-start"
+    "start": "npm run fe-start&&npm run be-start"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
