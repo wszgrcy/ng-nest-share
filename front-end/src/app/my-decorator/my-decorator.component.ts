@@ -43,6 +43,19 @@ export class MyDecoratorComponent {
   })
   load() {
     console.log('点击', this.blockContainer);
-    return timer(3000);
+    return new Promise((res) => {
+      setTimeout(() => {
+        res();
+      }, 3000);
+    });
+  }
+  @LoadingHint({
+    container: (type: MyDecoratorComponent) => type.blockContainer,
+    component: LoadingShowComponent,
+    timeout: 4000,
+    uninstallMod: CyiaLoadingHintUninstall.component,
+  })
+  loadControl(){
+
   }
 }
