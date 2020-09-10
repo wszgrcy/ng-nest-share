@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DemoModule } from './demo/demo.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PersonEntity } from './demo/person.entity';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'demo',
       
       // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      entities: [`${process.cwd()}/**/*.entity{.ts,.js}`],
+      entities: [PersonEntity],
       synchronize: true,
       insecureAuth:true
     }),
