@@ -1,1 +1,30 @@
 {{version}}
+<form action="" #form="ngForm" (ngSubmit)="update(form)">
+    <div>
+        <label for="">姓名</label>
+        <input type="text" name="name" ngModel>
+    </div>
+    <div>
+        <label for="">性别</label>
+        <span>
+            <label for="">男</label>
+            <input type="radio" name="sex" value="1" ngModel>
+        </span>
+        <span>
+            <label for="">女</label>
+            <input type="radio" name="sex" value="0" ngModel>
+        </span>
+
+    </div>
+    <div>
+        <label for="">年龄</label>
+        <input type="number" name="age" ngModel>
+    </div>
+    <div>
+        <label for="">部门</label>
+        <select name="department" id="" ngModel>
+            <option [value]="item.value" *ngFor="let item of departments">{{item.label}}</option>
+        </select>
+    </div>
+    <button type="submit">提交</button>
+</form>
